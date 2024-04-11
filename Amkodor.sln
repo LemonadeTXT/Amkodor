@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amkodor", "Amkodor\Amkodor.csproj", "{90398BA2-7A87-4583-B419-FFAF3378016C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor", "Amkodor\Amkodor.csproj", "{90398BA2-7A87-4583-B419-FFAF3378016C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{91B7FDE7-D9D4-46DF-BDD1-88E19858E245} = {91B7FDE7-D9D4-46DF-BDD1-88E19858E245}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.Models", "Amkodor.Models\Amkodor.Models.csproj", "{EE27297C-9D4A-460A-A720-14E32B29A299}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.BusinessLogic", "Amkodor.BusinessLogic\Amkodor.BusinessLogic.csproj", "{91B7FDE7-D9D4-46DF-BDD1-88E19858E245}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD} = {82BDCF9C-AE1D-416B-AA64-69E73E9561AD}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.DAL", "Amkodor.DAL\Amkodor.DAL.csproj", "{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +27,18 @@ Global
 		{90398BA2-7A87-4583-B419-FFAF3378016C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90398BA2-7A87-4583-B419-FFAF3378016C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90398BA2-7A87-4583-B419-FFAF3378016C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE27297C-9D4A-460A-A720-14E32B29A299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE27297C-9D4A-460A-A720-14E32B29A299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE27297C-9D4A-460A-A720-14E32B29A299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE27297C-9D4A-460A-A720-14E32B29A299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B7FDE7-D9D4-46DF-BDD1-88E19858E245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B7FDE7-D9D4-46DF-BDD1-88E19858E245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B7FDE7-D9D4-46DF-BDD1-88E19858E245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B7FDE7-D9D4-46DF-BDD1-88E19858E245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

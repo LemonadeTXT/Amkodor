@@ -8,4 +8,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Amkodor.Models\Amkodor.Models.csproj" />
+	  <ProjectReference Include="..\Amkodor.BusinessLogic\Amkodor.BusinessLogic.csproj" />
+  </ItemGroup>
+
 </Project>
