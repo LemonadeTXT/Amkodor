@@ -7,13 +7,16 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
-        Title="AuthWindow" Height="400" Width="350">
+        Title="Авторизация" Height="250" Width="500">
     <Grid>
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="75,122,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textboxLogin" HorizontalAlignment="Left" Margin="175,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Center"/>
-        <TextBox x:Name="textboxPassword" HorizontalAlignment="Left" Margin="175,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,274,0,0" VerticalAlignment="Top" Click="Button_Enter"/>
+        <Image x:Name="Logo" Source="/Images/Logo.png" HorizontalAlignment="Left" Height="44" Margin="26,29,0,0" VerticalAlignment="Top" Width="44"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="88,29,0,0" TextWrapping="Wrap" Text="Модуль производства готовой техники" VerticalAlignment="Top"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="114,71,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textboxLogin" HorizontalAlignment="Left" Margin="214,71,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="114,117,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="214,117,0,0"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="392,67,0,0" VerticalAlignment="Top" Click="Button_Enter" Width="87"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="392,113,0,0" VerticalAlignment="Top" Click="Button_Close"/>
 
     </Grid>
 </Window>

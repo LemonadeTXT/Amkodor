@@ -5,6 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Amkodor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Title="Модуль производства готовой техники" Height="450" Width="800">
+    <Grid>
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden"/>
+    </Grid>
 </Window>

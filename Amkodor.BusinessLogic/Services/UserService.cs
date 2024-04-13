@@ -10,24 +10,31 @@ using System.Threading.Tasks;
 
 namespace Amkodor.BusinessLogic.Services
 {
-    public class AuthService : IAuthService
+    public class UserService : IUserService
     {
         private readonly ApplicationContext _applicationContext;
         private readonly HashService _hashService;
 
-        public AuthService()
+        public UserService()
         {
             _applicationContext = new ApplicationContext();
             _hashService = new HashService();
         }
 
-        public bool Auth(UserDto userDto)
+        public void Edit(UserDto userDto)
         {
-            var foundUser = _applicationContext.Users.FirstOrDefault(i => i.Login == userDto.Login);
+            _hashService.CreatePasswordHash(userDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-            var isAuth = _hashService.VerifyPasswordHash(userDto.Password, foundUser?.PasswordHash, foundUser?.PasswordSalt);
+            var user = new User
+            {
+                Login = userDto.Login,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt
+            };
 
-            return isAuth;
+            _applicationContext.Users.Update(user);
+
+            _applicationContext.SaveChanges();
         }
     }
 }

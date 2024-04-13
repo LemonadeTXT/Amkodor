@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.BusinessLogic", "Am
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.DAL", "Amkodor.DAL\Amkodor.DAL.csproj", "{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amkodor.Common", "Amkodor.Common\Amkodor.Common.csproj", "{F48CB124-4941-459E-BA96-693DC8E3B379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F48CB124-4941-459E-BA96-693DC8E3B379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F48CB124-4941-459E-BA96-693DC8E3B379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F48CB124-4941-459E-BA96-693DC8E3B379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F48CB124-4941-459E-BA96-693DC8E3B379}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Amkodor.Common\Amkodor.Common.csproj" />
-    <ProjectReference Include="..\Amkodor.DAL\Amkodor.DAL.csproj" />
-    <ProjectReference Include="..\Amkodor.Models\Amkodor.Models.csproj" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
 </Project>

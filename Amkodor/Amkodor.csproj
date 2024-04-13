@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\favicon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Logo.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Pages\" />
@@ -18,8 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Amkodor.Common\Amkodor.Common.csproj" />
     <ProjectReference Include="..\Amkodor.Models\Amkodor.Models.csproj" />
 	  <ProjectReference Include="..\Amkodor.BusinessLogic\Amkodor.BusinessLogic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Logo.png" />
   </ItemGroup>
 
 </Project>

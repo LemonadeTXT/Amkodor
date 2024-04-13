@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Amkodor.Common.DTOs;
 
 namespace Amkodor.Windows
 {
@@ -30,20 +31,38 @@ namespace Amkodor.Windows
 
         private void Button_Enter(object sender, RoutedEventArgs e)
         {
-            var user = new User
+            textboxLogin.Text = textboxLogin.Text.Trim();
+            passwordBox.Password = passwordBox.Password.Trim();
+
+            if (!string.IsNullOrEmpty(textboxLogin.Text) && !string.IsNullOrEmpty(passwordBox.Password))
             {
-                Login = textboxLogin.Text,
-                Password = textboxPassword.Text,
-            };
+                try
+                {
+                    var userDto = new UserDto
+                    {
+                        Login = textboxLogin.Text,
+                        Password = passwordBox.Password,
+                    };
 
-            var auth = _authService.Auth(user);
+                    var auth = _authService.Auth(userDto);
 
-            if (auth)
-            {
-                new MainWindow().Show();
+                    if (auth)
+                    {
+                        new MainWindow().Show();
 
-                Close();
+                        Close();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw new Exception();
+                }
             }
+        }
+
+        private void Button_Close(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
