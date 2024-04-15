@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
-        Title="Авторизация" Height="250" Width="500">
+        Title="Авторизация" Height="240" Width="520">
     <Grid>
         <Image x:Name="Logo" Source="/Images/Logo.png" HorizontalAlignment="Left" Height="44" Margin="26,29,0,0" VerticalAlignment="Top" Width="44"/>
-        <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="88,29,0,0" TextWrapping="Wrap" Text="Модуль производства готовой техники" VerticalAlignment="Top"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="88,29,0,0" TextWrapping="Wrap" Text="Модуль производства готовой техники ЗАО 'Амкодор-Пинск'" VerticalAlignment="Top"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="114,71,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textboxLogin" HorizontalAlignment="Left" Margin="214,71,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="114,117,0,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="214,117,0,0"/>
-        <Button Content="Войти" HorizontalAlignment="Left" Margin="392,67,0,0" VerticalAlignment="Top" Click="Button_Enter" Width="87"/>
-        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="392,113,0,0" VerticalAlignment="Top" Click="Button_Close"/>
+        <Button Content="Войти" HorizontalAlignment="Left" Margin="392,67,0,0" VerticalAlignment="Top" Click="ButtonEnter_Click" Width="87"/>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="392,113,0,0" VerticalAlignment="Top" Click="ButtonClose_Click"/>
 
     </Grid>
 </Window>

@@ -16,8 +16,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.BusinessLogic", "Am
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.DAL", "Amkodor.DAL\Amkodor.DAL.csproj", "{82BDCF9C-AE1D-416B-AA64-69E73E9561AD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F48CB124-4941-459E-BA96-693DC8E3B379} = {F48CB124-4941-459E-BA96-693DC8E3B379}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amkodor.Common", "Amkodor.Common\Amkodor.Common.csproj", "{F48CB124-4941-459E-BA96-693DC8E3B379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amkodor.Common", "Amkodor.Common\Amkodor.Common.csproj", "{F48CB124-4941-459E-BA96-693DC8E3B379}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

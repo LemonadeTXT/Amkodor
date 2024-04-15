@@ -29,7 +29,7 @@ namespace Amkodor.Windows
             _authService = new AuthService();
         }
 
-        private void Button_Enter(object sender, RoutedEventArgs e)
+        private void ButtonEnter_Click(object sender, RoutedEventArgs e)
         {
             textboxLogin.Text = textboxLogin.Text.Trim();
             passwordBox.Password = passwordBox.Password.Trim();
@@ -60,7 +60,7 @@ namespace Amkodor.Windows
             }
         }
 
-        private void Button_Close(object sender, RoutedEventArgs e)
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

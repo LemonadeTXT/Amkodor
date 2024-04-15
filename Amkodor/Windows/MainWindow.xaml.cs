@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Amkodor.Pages;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +17,21 @@ namespace Amkodor
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ButtonWarehouses_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new WarehousesPage());
+        }
+
+        private void ButtonSuppliers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+       
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
