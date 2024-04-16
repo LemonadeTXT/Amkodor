@@ -13,9 +13,9 @@ namespace Amkodor.DAL.Repositories
     {
         private readonly ApplicationContext _applicationContext;
 
-        public AuthRepository()
+        public AuthRepository(ApplicationContext applicationContext)
         {
-            _applicationContext = new ApplicationContext();
+            _applicationContext = applicationContext;
         }
 
         public User Auth(UserDto userDto)

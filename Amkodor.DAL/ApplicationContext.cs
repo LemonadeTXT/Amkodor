@@ -12,14 +12,9 @@ namespace Amkodor.DAL
     {
         public DbSet<User> Users { get; set; }
 
-        public ApplicationContext()
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
 
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=Amkodor;Trusted_Connection=True;TrustServerCertificate=True");
         }
     }
 }

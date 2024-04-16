@@ -15,21 +15,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Amkodor.Common.DTOs;
+using Amkodor.ConnectionServices;
 
 namespace Amkodor.Windows
 {
     public partial class AuthWindow : Window
     {
-        private readonly IAuthService _authService;
+        private readonly AuthConnectionService _authConnectionService;
 
         public AuthWindow()
         {
             InitializeComponent();
 
-            _authService = new AuthService();
+            _authConnectionService = new AuthConnectionService();
         }
 
-        private void ButtonEnter_Click(object sender, RoutedEventArgs e)
+        private async void ButtonEnter_Click(object sender, RoutedEventArgs e)
         {
             textboxLogin.Text = textboxLogin.Text.Trim();
             passwordBox.Password = passwordBox.Password.Trim();
@@ -44,7 +45,7 @@ namespace Amkodor.Windows
                         Password = passwordBox.Password,
                     };
 
-                    var auth = _authService.Auth(userDto);
+                    var auth = await _authConnectionService.Auth(userDto);
 
                     if (auth)
                     {

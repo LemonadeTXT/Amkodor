@@ -1,8 +1,6 @@
 ﻿using Amkodor.BusinessLogic.Interfaces;
 using Amkodor.Common.DTOs;
-using Amkodor.DAL;
-using Amkodor.DAL.Repositories;
-using Amkodor.Models.Models;
+using Amkodor.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +11,13 @@ namespace Amkodor.BusinessLogic.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly AuthRepository _authRepository;
-        private readonly HashService _hashService;
+        private readonly IAuthRepository _authRepository;
+        private readonly IHashService _hashService;
 
-        public AuthService()
+        public AuthService(IAuthRepository authRepository, IHashService hashService)
         {
-            _authRepository = new AuthRepository();
-            _hashService = new HashService();
+            _authRepository = authRepository;
+            _hashService = hashService;
         }
 
         public bool Auth(UserDto userDto)
