@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Amkodor.Common\Amkodor.Common.csproj" />
+  </ItemGroup>
+
 </Project>

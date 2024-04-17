@@ -21,7 +21,7 @@ namespace Amkodor.ConnectionServices
             _httpClient = new HttpClient();
         }
 
-        public async Task<bool> Auth(UserDto userDto)
+        public async Task<bool> IsAuth(UserDto userDto)
         {
             var userDtoSerialize = JsonConvert.SerializeObject(userDto);
 

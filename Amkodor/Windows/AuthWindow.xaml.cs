@@ -45,7 +45,7 @@ namespace Amkodor.Windows
                         Password = passwordBox.Password,
                     };
 
-                    var auth = await _authConnectionService.Auth(userDto);
+                    var auth = await _authConnectionService.IsAuth(userDto);
 
                     if (auth)
                     {

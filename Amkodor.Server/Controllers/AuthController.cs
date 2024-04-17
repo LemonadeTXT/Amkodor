@@ -16,11 +16,11 @@ namespace Amkodor.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<bool> Auth([FromBody]UserDto userDto)
+        public async Task<bool> IsAuth([FromBody]UserDto userDto)
         {
             try
             {
-                return _authService.Auth(userDto);
+                return _authService.IsAuth(userDto);
             }
             catch
             {

@@ -26,7 +26,7 @@ namespace Amkodor
 
         private void ButtonSuppliers_Click(object sender, RoutedEventArgs e)
         {
-
+            frame.Navigate(new SuppliersPage());
         }
        
         private void ButtonExit_Click(object sender, RoutedEventArgs e)

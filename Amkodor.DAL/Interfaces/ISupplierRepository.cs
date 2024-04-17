@@ -1,5 +1,4 @@
 ﻿using Amkodor.Models.Models;
-using Amkodor.Common.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Amkodor.DAL.Interfaces
 {
-    public interface IAuthRepository
+    public interface ISupplierRepository
     {
-        User IsAuth(UserDto userDto);
+        IEnumerable<Supplier> GetAllSuppliers();
     }
 }

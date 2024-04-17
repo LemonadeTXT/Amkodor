@@ -20,9 +20,9 @@ namespace Amkodor.BusinessLogic.Services
             _hashService = hashService;
         }
 
-        public bool Auth(UserDto userDto)
+        public bool IsAuth(UserDto userDto)
         {
-            var foundUser = _authRepository.Auth(userDto);
+            var foundUser = _authRepository.IsAuth(userDto);
 
             var isAuth = _hashService.VerifyPasswordHash(userDto.Password, foundUser?.PasswordHash, foundUser?.PasswordSalt);
 

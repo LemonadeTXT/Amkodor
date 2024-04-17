@@ -1,5 +1,4 @@
-﻿using Amkodor.Common.DTOs;
-using Amkodor.DAL.Interfaces;
+﻿using Amkodor.DAL.Interfaces;
 using Amkodor.Models.Models;
 using System;
 using System.Collections.Generic;
@@ -9,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace Amkodor.DAL.Repositories
 {
-    public class AuthRepository : IAuthRepository
+    public class SupplierRepository : ISupplierRepository
     {
         private readonly ApplicationContext _applicationContext;
 
-        public AuthRepository(ApplicationContext applicationContext)
+        public SupplierRepository(ApplicationContext applicationContext)
         {
             _applicationContext = applicationContext;
         }
 
-        public User IsAuth(UserDto userDto)
+        public IEnumerable<Supplier> GetAllSuppliers()
         {
-            var foundUser = _applicationContext.Users.FirstOrDefault(i => i.Login == userDto.Login);
+            var suppliers = _applicationContext.Suppliers.ToList();
 
-            return foundUser;
+            return suppliers;
         }
     }
 }

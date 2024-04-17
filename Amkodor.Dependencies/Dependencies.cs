@@ -17,11 +17,15 @@ namespace Amkodor.Dependencies
         {
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IHashService, HashService>();
+            services.AddTransient<ISupplierService, SupplierService>();
+            services.AddTransient<IMaterialSupplierService, MaterialSupplierService>();
         }
 
         public static void AddIRepositories(this IServiceCollection services)
         {
             services.AddTransient<IAuthRepository, AuthRepository>();
+            services.AddTransient<ISupplierRepository, SupplierRepository>();
+            services.AddTransient<IMaterialSupplierRepository, MaterialSupplierRepository>();
         }
     }
 }
