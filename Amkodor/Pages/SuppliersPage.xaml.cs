@@ -33,6 +33,12 @@ namespace Amkodor.Pages
         private async Task LoadDatagrid()
         {
             dataGridSuppliers.ItemsSource = await _supplierConnectionService.GetAllSuppliers();
+
+            dataGridSuppliers.Columns[0].Header = "№";
+            dataGridSuppliers.Columns[1].Header = "Организация";
+            dataGridSuppliers.Columns[2].Header = "Адрес";
+            dataGridSuppliers.Columns[3].Header = "Почта";
+            dataGridSuppliers.Columns[4].Header = "Контактный номер";
         }
     }
 }

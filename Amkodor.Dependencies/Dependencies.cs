@@ -19,6 +19,8 @@ namespace Amkodor.Dependencies
             services.AddTransient<IHashService, HashService>();
             services.AddTransient<ISupplierService, SupplierService>();
             services.AddTransient<IMaterialSupplierService, MaterialSupplierService>();
+            services.AddTransient<IWarehouseService, WarehouseService>();
+            services.AddTransient<IMaterialService, MaterialService>();
         }
 
         public static void AddIRepositories(this IServiceCollection services)
@@ -26,6 +28,8 @@ namespace Amkodor.Dependencies
             services.AddTransient<IAuthRepository, AuthRepository>();
             services.AddTransient<ISupplierRepository, SupplierRepository>();
             services.AddTransient<IMaterialSupplierRepository, MaterialSupplierRepository>();
+            services.AddTransient<IWarehouseRepository, WarehouseRepository>();
+            services.AddTransient<IMaterialRepository, MaterialRepository>();
         }
     }
 }

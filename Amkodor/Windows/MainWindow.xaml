@@ -18,12 +18,12 @@
                     <MenuItem Header="_Выход" Click="ButtonExit_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Материалы и изделия">
-                    <MenuItem Header="_Материалы" />
+                    <MenuItem Header="_Материалы" Click="ButtonMaterials_Click"/>
                     <MenuItem Header="_Изделия" />
                 </MenuItem>
                 <MenuItem Header="_Планирование">
                     <MenuItem Header="_Плановое задание" />
-                    <MenuItem Header="_Запрос на покупку" />
+                    <MenuItem Header="_Запрос на покупку" Click="ButtonPurchaseRequest_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Отчеты">
                     <MenuItem Header="_Изделия в производстве" />

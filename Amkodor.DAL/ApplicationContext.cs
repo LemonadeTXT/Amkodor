@@ -13,6 +13,8 @@ namespace Amkodor.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<MaterialSupplier> MaterialsSuppliers { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<Material> Materials { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

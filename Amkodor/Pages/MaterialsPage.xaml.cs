@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 
 namespace Amkodor.Pages
 {
-    public partial class WarehousesPage : Page
+    public partial class MaterialsPage : Page
     {
-        private readonly WarehouseConnectionService _warehouseConnectionService;
+        private readonly MaterialConnectionService _materialConnectionService;
 
-        public WarehousesPage()
+        public MaterialsPage()
         {
-            _warehouseConnectionService = new WarehouseConnectionService();
+            _materialConnectionService = new MaterialConnectionService();
 
             InitializeComponent();
 
@@ -31,10 +31,12 @@ namespace Amkodor.Pages
 
         private async Task LoadDatagrid()
         {
-            dataGridWarehouses.ItemsSource = await _warehouseConnectionService.GetAllWarehouses();
+            dataGridMaterials.ItemsSource = await _materialConnectionService.GetAllMaterials();
 
-            dataGridWarehouses.Columns[0].Header = "№";
-            dataGridWarehouses.Columns[1].Header = "Название";
+            dataGridMaterials.Columns[0].Header = "№";
+            dataGridMaterials.Columns[1].Header = "Название";
+            dataGridMaterials.Columns[2].Header = "Тип";
+            dataGridMaterials.Columns[3].Header = "Единица измерения";
         }
     }
 }

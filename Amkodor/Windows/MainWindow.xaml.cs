@@ -33,5 +33,15 @@ namespace Amkodor
         {
             Close();
         }
+
+        private void ButtonMaterials_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new MaterialsPage());
+        }
+
+        private void ButtonPurchaseRequest_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new MaterialsSuppliersPage());
+        }
     }
 }
