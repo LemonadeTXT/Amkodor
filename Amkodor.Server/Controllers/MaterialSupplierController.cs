@@ -28,5 +28,19 @@ namespace Amkodor.Server.Controllers
                 throw new Exception();
             }
         }
+
+        [HttpPost]
+        [Route("getAllMaterialsSupBySupplierId")]
+        public async Task<IEnumerable<MaterialSupplier>> GetAllMaterialsSupBySupplierId([FromBody] int supplierId)
+        {
+            try
+            {
+                return _materialSupplierService.GetAllMaterialsSupBySupplierId(supplierId);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
     }
 }

@@ -28,5 +28,47 @@ namespace Amkodor.Server.Controllers
                 throw new Exception();
             }
         }
+
+        [HttpPost]
+        [Route("add")]
+        public void Add(Warehouse warehouse)
+        {
+            try
+            {
+                _warehouseService.Add(warehouse);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
+        [Route("edit")]
+        public void Edit(Warehouse warehouse)
+        {
+            try
+            {
+                _warehouseService.Edit(warehouse);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
+        [Route("delete")]
+        public void Delete(Warehouse warehouse)
+        {
+            try
+            {
+                _warehouseService.Delete(warehouse);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
     }
 }

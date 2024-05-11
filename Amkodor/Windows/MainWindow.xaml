@@ -14,6 +14,7 @@
                 <MenuItem Header="_Справочники">
                     <MenuItem Header="_Склады" Click="ButtonWarehouses_Click"/>
                     <MenuItem Header="_Поставщики" Click="ButtonSuppliers_Click"/>
+                    <MenuItem Header="_Сотрудники" Click="ButtonEmployees_Click"/>
                     <Separator />
                     <MenuItem Header="_Выход" Click="ButtonExit_Click"/>
                 </MenuItem>
@@ -32,5 +33,6 @@
             </Menu>
             <Frame DockPanel.Dock="Bottom" x:Name="frame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
+        <TextBlock x:Name="textBlockAdvice" Text="Выберите пункт меню для начала работы." FontSize="16" Opacity="0.5" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
     </Grid>
 </Window>

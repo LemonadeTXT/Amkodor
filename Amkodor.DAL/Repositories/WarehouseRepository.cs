@@ -23,5 +23,23 @@ namespace Amkodor.DAL.Repositories
 
             return warehouses;
         }
+
+        public void Add(Warehouse warehouse)
+        {
+            _applicationContext.Warehouses.Add(warehouse);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Edit(Warehouse warehouse)
+        {
+            _applicationContext.Warehouses.Update(warehouse);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Delete(Warehouse warehouse)
+        {
+            _applicationContext.Warehouses.Remove(warehouse);
+            _applicationContext.SaveChanges();
+        }
     }
 }

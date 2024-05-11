@@ -10,5 +10,11 @@ namespace Amkodor.BusinessLogic.Interfaces
     public interface IWarehouseService
     {
         IEnumerable<Warehouse> GetAllWarehouses();
+
+        void Add(Warehouse warehouse);
+
+        void Edit(Warehouse warehouse);
+
+        void Delete(Warehouse warehouse);
     }
 }

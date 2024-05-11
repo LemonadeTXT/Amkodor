@@ -23,5 +23,12 @@ namespace Amkodor.DAL.Repositories
 
             return materialsSuppliers;
         }
+
+        public IEnumerable<MaterialSupplier> GetAllMaterialsSupBySupplierId(int supplierId)
+        {
+            var materialsSuppliers = _applicationContext.MaterialsSuppliers.Where(ms => ms.SupplierId == supplierId).ToList();
+
+            return materialsSuppliers;
+        }
     }
 }

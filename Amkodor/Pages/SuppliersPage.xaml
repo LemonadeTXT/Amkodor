@@ -9,6 +9,39 @@
       Title="SuppliersPage">
 
     <Grid Background="White">
-        <DataGrid x:Name="dataGridSuppliers" IsReadOnly="True"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Column="0" Grid.Row="0" x:Name="dataGridSuppliers" Margin="0,0,1,0" MouseDoubleClick="DataGrid_MouseDoubleClick" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Эл. почта" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding ContactNumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="1" Grid.Row="0" x:Name="dataGridMaterialsSuppliers" Margin="1,0,0,0" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Ед. измерения" Binding="{Binding Unit}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding PriceForOne}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Column="0" Grid.Row="1" Content="Добавить" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonAddSupplier_Click"/>
+        <Button Grid.Column="0" Grid.Row="1" Content="Изменить" HorizontalAlignment="Left" Margin="120,10,10,10" VerticalAlignment="Top" Click="ButtonEditSupplier_Click"/>
+        <Button Grid.Column="0" Grid.Row="1" Content="Удалить" HorizontalAlignment="Left" Margin="230,10,10,10" VerticalAlignment="Top" Click="ButtonDeleteSupplier_Click"/>
+        <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonRefresh_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/refresh32.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

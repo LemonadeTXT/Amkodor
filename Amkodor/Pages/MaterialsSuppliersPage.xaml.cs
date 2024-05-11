@@ -29,7 +29,7 @@ namespace Amkodor.Pages
             LoadDatagrid();
         }
 
-        private async Task LoadDatagrid()
+        private async void LoadDatagrid()
         {
             dataGridMaterialsSuppliers.ItemsSource = await _materialSupplierConnectionService.GetAllMaterialsSuppliers();
 

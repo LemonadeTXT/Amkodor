@@ -22,5 +22,20 @@ namespace Amkodor.BusinessLogic.Services
         {
             return _supplierRepository.GetAllSuppliers();
         }
+
+        public void Add(Supplier supplier)
+        {
+            _supplierRepository.Add(supplier);
+        }
+
+        public void Edit(Supplier supplier)
+        {
+            _supplierRepository.Edit(supplier);
+        }
+
+        public void Delete(Supplier supplier)
+        {
+            _supplierRepository.Delete(supplier);
+        }
     }
 }

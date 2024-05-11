@@ -15,7 +15,7 @@ namespace Amkodor.Models.Models
         public TypeEnum? Type { get; set; }
         public UnitEnum? Unit { get; set; }
 
-        public int WarehouseId { get; set; }
+        public int? WarehouseId { get; set; }
         public Warehouse? Warehouse { get; set; }
     }
 }

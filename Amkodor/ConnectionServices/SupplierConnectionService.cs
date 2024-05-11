@@ -36,5 +36,32 @@ namespace Amkodor.ConnectionServices
 
             return null;
         }
+
+        public async void Add(Supplier supplier)
+        {
+            var supplierSerialize = JsonConvert.SerializeObject(supplier);
+
+            var content = new StringContent(supplierSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/add", content);
+        }
+
+        public async void Edit(Supplier supplier)
+        {
+            var supplierSerialize = JsonConvert.SerializeObject(supplier);
+
+            var content = new StringContent(supplierSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/edit", content);
+        }
+
+        public async void Delete(Supplier supplier)
+        {
+            var supplierSerialize = JsonConvert.SerializeObject(supplier);
+
+            var content = new StringContent(supplierSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/delete", content);
+        }
     }
 }

@@ -10,6 +10,6 @@ namespace Amkodor.Models.Models
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public List<Material> Materials { get; set; } = new();
+        public List<Material>? Materials { get; set; } = new();
     }
 }

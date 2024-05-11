@@ -1,4 +1,7 @@
-﻿using Amkodor.ConnectionServices;
+﻿using Amkodor.AddWindows;
+using Amkodor.ConnectionServices;
+using Amkodor.EditWindows;
+using Amkodor.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,14 +32,64 @@ namespace Amkodor.Pages
             LoadDatagrid();
         }
 
-        private async Task LoadDatagrid()
+        private void ButtonAddMaterial_Click(object sender, RoutedEventArgs e)
+        {
+            new AddMaterialWindow(_materialConnectionService).ShowDialog();
+        }
+
+        private void ButtonEditMaterial_Click(object sender, RoutedEventArgs e)
+        {
+            var material = (Material)dataGridMaterials.SelectedItem;
+
+            if (material != null)
+            {
+                new EditMaterialWindow(_materialConnectionService, material).ShowDialog();
+            }
+        }
+
+        private void ButtonDeleteMaterial_Click(object sender, RoutedEventArgs e)
+        {
+            var material = (Material)dataGridMaterials.SelectedItem;
+
+            if (material != null)
+            {
+                _materialConnectionService.Delete(material);
+            }
+        }
+
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
         {
             dataGridMaterials.ItemsSource = await _materialConnectionService.GetAllMaterials();
+        }
 
-            dataGridMaterials.Columns[0].Header = "№";
-            dataGridMaterials.Columns[1].Header = "Название";
-            dataGridMaterials.Columns[2].Header = "Тип";
-            dataGridMaterials.Columns[3].Header = "Единица измерения";
+        private async void TextBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && !string.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                Search(textBoxSearch.Text);
+            }
+            else if (e.Key == Key.Enter && string.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                dataGridMaterials.ItemsSource = await _materialConnectionService.GetAllMaterials();
+            }
+        }
+
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            Search(textBoxSearch.Text);
+        }
+
+        private async void Search(string value)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                dataGridMaterials.ItemsSource = await _materialConnectionService.Search(value);
+            }
+        }
+
+        private async void LoadDatagrid()
+        {
+            dataGridMaterials.ItemsSource = await _materialConnectionService.GetAllMaterials();
         }
     }
 }

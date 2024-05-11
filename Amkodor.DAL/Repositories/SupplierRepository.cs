@@ -23,5 +23,23 @@ namespace Amkodor.DAL.Repositories
 
             return suppliers;
         }
+
+        public void Add(Supplier supplier)
+        {
+            _applicationContext.Suppliers.Add(supplier);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Edit(Supplier supplier)
+        {
+            _applicationContext.Suppliers.Update(supplier);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Delete(Supplier supplier)
+        {
+            _applicationContext.Suppliers.Remove(supplier);
+            _applicationContext.SaveChanges();
+        }
     }
 }

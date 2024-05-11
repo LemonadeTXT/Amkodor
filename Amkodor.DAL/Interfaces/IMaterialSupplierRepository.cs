@@ -10,5 +10,7 @@ namespace Amkodor.DAL.Interfaces
     public interface IMaterialSupplierRepository
     {
         IEnumerable<MaterialSupplier> GetAllMaterialsSuppliers();
+
+        IEnumerable<MaterialSupplier> GetAllMaterialsSupBySupplierId(int supplierId);
     }
 }

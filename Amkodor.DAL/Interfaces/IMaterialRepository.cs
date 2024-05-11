@@ -10,5 +10,15 @@ namespace Amkodor.DAL.Interfaces
     public interface IMaterialRepository
     {
         IEnumerable<Material> GetAllMaterials();
+
+        IEnumerable<Material> GetAllMaterialsByWarehouseId(int warhouseId);
+
+        IEnumerable<Material> Search(string value);
+
+        void Add(Material material);
+
+        void Edit(Material material);
+
+        void Delete(Material material);
     }
 }

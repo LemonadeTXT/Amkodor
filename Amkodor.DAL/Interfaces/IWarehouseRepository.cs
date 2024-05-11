@@ -10,5 +10,11 @@ namespace Amkodor.DAL.Interfaces
     public interface IWarehouseRepository
     {
         IEnumerable<Warehouse> GetAllWarehouses();
+
+        void Add(Warehouse warehouse);
+
+        void Edit(Warehouse warehouse);
+
+        void Delete(Warehouse warehouse);
     }
 }

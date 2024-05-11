@@ -1,4 +1,6 @@
-﻿using Amkodor.ConnectionServices;
+﻿using Amkodor.AddWindows;
+using Amkodor.ConnectionServices;
+using Amkodor.EditWindows;
 using Amkodor.Models.Models;
 using System;
 using System.Collections.Generic;
@@ -20,25 +22,63 @@ namespace Amkodor.Pages
     public partial class SuppliersPage : Page
     {
         private readonly SupplierConnectionService _supplierConnectionService;
+        private readonly MaterialSupplierConnectionService _materialSupplierConnectionService;
 
         public SuppliersPage()
         {
             _supplierConnectionService = new SupplierConnectionService();
+            _materialSupplierConnectionService = new MaterialSupplierConnectionService();
 
             InitializeComponent();
 
             LoadDatagrid();
         }
 
-        private async Task LoadDatagrid()
+        private async void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var supplier = (Supplier)dataGridSuppliers.SelectedItem;
+
+            if (supplier != null)
+            {
+                dataGridMaterialsSuppliers.ItemsSource = await _materialSupplierConnectionService.GetAllMaterialsSupBySupplierId(supplier.Id);
+            }
+        }
+
+        private void ButtonAddSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            new AddSupplierWindow(_supplierConnectionService).ShowDialog();
+        }
+
+        private void ButtonEditSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            var supplier = (Supplier)dataGridSuppliers.SelectedItem;
+
+            if (supplier != null)
+            {
+                new EditSupplierWindow(_supplierConnectionService, supplier).ShowDialog();
+            }
+        }
+
+        private void ButtonDeleteSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            var supplier = (Supplier)dataGridSuppliers.SelectedItem;
+
+            if (supplier != null)
+            {
+                _supplierConnectionService.Delete(supplier);
+            }
+        }
+
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
         {
             dataGridSuppliers.ItemsSource = await _supplierConnectionService.GetAllSuppliers();
 
-            dataGridSuppliers.Columns[0].Header = "№";
-            dataGridSuppliers.Columns[1].Header = "Организация";
-            dataGridSuppliers.Columns[2].Header = "Адрес";
-            dataGridSuppliers.Columns[3].Header = "Почта";
-            dataGridSuppliers.Columns[4].Header = "Контактный номер";
+            dataGridMaterialsSuppliers.ItemsSource = null;
+        }
+
+        private async void LoadDatagrid()
+        {
+            dataGridSuppliers.ItemsSource = await _supplierConnectionService.GetAllSuppliers();
         }
     }
 }

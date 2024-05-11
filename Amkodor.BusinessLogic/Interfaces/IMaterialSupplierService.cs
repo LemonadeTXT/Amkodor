@@ -10,5 +10,7 @@ namespace Amkodor.BusinessLogic.Interfaces
     public interface IMaterialSupplierService
     {
         IEnumerable<MaterialSupplier> GetAllMaterialsSuppliers();
+
+        IEnumerable<MaterialSupplier> GetAllMaterialsSupBySupplierId(int supplierId);
     }
 }

@@ -22,5 +22,10 @@ namespace Amkodor.BusinessLogic.Services
         {
             return _materialSupplierRepository.GetAllMaterialsSuppliers();
         }
+
+        public IEnumerable<MaterialSupplier> GetAllMaterialsSupBySupplierId(int supplierId)
+        {
+            return _materialSupplierRepository.GetAllMaterialsSupBySupplierId(supplierId);
+        }
     }
 }

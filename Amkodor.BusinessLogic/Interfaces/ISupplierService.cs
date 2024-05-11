@@ -10,5 +10,11 @@ namespace Amkodor.BusinessLogic.Interfaces
     public interface ISupplierService
     {
         IEnumerable<Supplier> GetAllSuppliers();
+
+        void Add(Supplier supplier);
+
+        void Edit(Supplier supplier);
+
+        void Delete(Supplier supplier);
     }
 }

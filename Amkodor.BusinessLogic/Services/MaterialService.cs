@@ -22,5 +22,30 @@ namespace Amkodor.BusinessLogic.Services
         {
             return _materialRepository.GetAllMaterials();
         }
+
+        public IEnumerable<Material> GetAllMaterialsByWarehouseId(int warhouseId)
+        {
+            return _materialRepository.GetAllMaterialsByWarehouseId(warhouseId);
+        }
+
+        public IEnumerable<Material> Search(string value)
+        {
+            return _materialRepository.Search(value);
+        }
+
+        public void Add(Material material)
+        {
+            _materialRepository.Add(material);
+        }
+
+        public void Edit(Material material)
+        {
+            _materialRepository.Edit(material);
+        }
+
+        public void Delete(Material material)
+        {
+            _materialRepository.Delete(material);
+        }
     }
 }

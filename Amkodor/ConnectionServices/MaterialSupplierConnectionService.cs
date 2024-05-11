@@ -36,5 +36,25 @@ namespace Amkodor.ConnectionServices
 
             return null;
         }
+
+        public async Task<IEnumerable<MaterialSupplier>> GetAllMaterialsSupBySupplierId(int supplierId)
+        {
+            var valueSerialize = JsonConvert.SerializeObject(supplierId);
+
+            var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(_uri + "/getAllMaterialsSupBySupplierId", content);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var materialsSuppliers = JsonConvert.DeserializeObject<IEnumerable<MaterialSupplier>>(responseContent);
+
+                return materialsSuppliers;
+            }
+
+            return null;
+        }
     }
 }

@@ -17,6 +17,8 @@ namespace Amkodor.Models.Models
         
         [Column(TypeName = "money")]
         public decimal PriceForOne { get; set; }
-        public List<Supplier>? Suppliers { get; set; } = new();
+
+        public int? SupplierId { get; set; }
+        public Supplier? Supplier { get; set; }
     }
 }

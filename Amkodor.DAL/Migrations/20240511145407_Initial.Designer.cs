@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amkodor.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240417145306_initial")]
-    partial class initial
+    [Migration("20240511145407_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,55 @@ namespace Amkodor.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Amkodor.Models.Models.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Amkodor.Models.Models.Material", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Unit")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WarehouseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WarehouseId");
+
+                    b.ToTable("Materials");
+                });
 
             modelBuilder.Entity("Amkodor.Models.Models.MaterialSupplier", b =>
                 {
@@ -38,6 +87,9 @@ namespace Amkodor.DAL.Migrations
                     b.Property<decimal>("PriceForOne")
                         .HasColumnType("money");
 
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("Type")
                         .HasColumnType("int");
 
@@ -45,6 +97,8 @@ namespace Amkodor.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("MaterialsSuppliers");
                 });
@@ -96,34 +150,52 @@ namespace Amkodor.DAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MaterialSupplierSupplier", b =>
+            modelBuilder.Entity("Amkodor.Models.Models.Warehouse", b =>
                 {
-                    b.Property<int>("MaterialsSupplierId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("SuppliersId")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.HasKey("MaterialsSupplierId", "SuppliersId");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("SuppliersId");
+                    b.HasKey("Id");
 
-                    b.ToTable("MaterialSupplierSupplier");
+                    b.ToTable("Warehouses");
                 });
 
-            modelBuilder.Entity("MaterialSupplierSupplier", b =>
+            modelBuilder.Entity("Amkodor.Models.Models.Material", b =>
                 {
-                    b.HasOne("Amkodor.Models.Models.MaterialSupplier", null)
-                        .WithMany()
-                        .HasForeignKey("MaterialsSupplierId")
+                    b.HasOne("Amkodor.Models.Models.Warehouse", "Warehouse")
+                        .WithMany("Materials")
+                        .HasForeignKey("WarehouseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Amkodor.Models.Models.Supplier", null)
-                        .WithMany()
-                        .HasForeignKey("SuppliersId")
+                    b.Navigation("Warehouse");
+                });
+
+            modelBuilder.Entity("Amkodor.Models.Models.MaterialSupplier", b =>
+                {
+                    b.HasOne("Amkodor.Models.Models.Supplier", "Supplier")
+                        .WithMany("MaterialsSupplier")
+                        .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("Amkodor.Models.Models.Supplier", b =>
+                {
+                    b.Navigation("MaterialsSupplier");
+                });
+
+            modelBuilder.Entity("Amkodor.Models.Models.Warehouse", b =>
+                {
+                    b.Navigation("Materials");
                 });
 #pragma warning restore 612, 618
         }
