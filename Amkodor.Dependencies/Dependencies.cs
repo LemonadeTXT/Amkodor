@@ -21,6 +21,7 @@ namespace Amkodor.Dependencies
             services.AddTransient<IMaterialSupplierService, MaterialSupplierService>();
             services.AddTransient<IWarehouseService, WarehouseService>();
             services.AddTransient<IMaterialService, MaterialService>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
         }
 
         public static void AddIRepositories(this IServiceCollection services)
@@ -30,6 +31,7 @@ namespace Amkodor.Dependencies
             services.AddTransient<IMaterialSupplierRepository, MaterialSupplierRepository>();
             services.AddTransient<IWarehouseRepository, WarehouseRepository>();
             services.AddTransient<IMaterialRepository, MaterialRepository>();
+            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
         }
     }
 }

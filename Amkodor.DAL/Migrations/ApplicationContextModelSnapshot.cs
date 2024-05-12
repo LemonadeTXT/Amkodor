@@ -31,6 +31,7 @@ namespace Amkodor.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -39,7 +40,12 @@ namespace Amkodor.DAL.Migrations
                     b.Property<int?>("Position")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ProductInBuildingId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductInBuildingId");
 
                     b.ToTable("Employees");
                 });
@@ -52,7 +58,11 @@ namespace Amkodor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Type")
@@ -80,18 +90,19 @@ namespace Amkodor.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("PriceForOne")
+                    b.Property<decimal?>("PriceForOne")
                         .HasColumnType("money");
 
                     b.Property<int?>("SupplierId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Type")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Unit")
+                    b.Property<int>("Unit")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -99,6 +110,34 @@ namespace Amkodor.DAL.Migrations
                     b.HasIndex("SupplierId");
 
                     b.ToTable("MaterialsSuppliers");
+                });
+
+            modelBuilder.Entity("Amkodor.Models.Models.ProductInBuilding", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DeadLine")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Readiness")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductInBuilding");
                 });
 
             modelBuilder.Entity("Amkodor.Models.Models.Supplier", b =>
@@ -119,6 +158,7 @@ namespace Amkodor.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -135,12 +175,15 @@ namespace Amkodor.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Login")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.HasKey("Id");
@@ -157,11 +200,21 @@ namespace Amkodor.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Warehouses");
+                });
+
+            modelBuilder.Entity("Amkodor.Models.Models.Employee", b =>
+                {
+                    b.HasOne("Amkodor.Models.Models.ProductInBuilding", "ProductInBuilding")
+                        .WithMany("Employees")
+                        .HasForeignKey("ProductInBuildingId");
+
+                    b.Navigation("ProductInBuilding");
                 });
 
             modelBuilder.Entity("Amkodor.Models.Models.Material", b =>
@@ -180,6 +233,11 @@ namespace Amkodor.DAL.Migrations
                         .HasForeignKey("SupplierId");
 
                     b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("Amkodor.Models.Models.ProductInBuilding", b =>
+                {
+                    b.Navigation("Employees");
                 });
 
             modelBuilder.Entity("Amkodor.Models.Models.Supplier", b =>

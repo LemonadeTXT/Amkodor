@@ -11,12 +11,12 @@ namespace Amkodor.Models.Models
     public class MaterialSupplier
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public TypeEnum? Type { get; set; }
-        public UnitEnum? Unit { get; set; }
+        public string Name { get; set; }
+        public TypeEnum Type { get; set; }
+        public UnitEnum Unit { get; set; }
         
         [Column(TypeName = "money")]
-        public decimal PriceForOne { get; set; }
+        public decimal? PriceForOne { get; set; }
 
         public int? SupplierId { get; set; }
         public Supplier? Supplier { get; set; }

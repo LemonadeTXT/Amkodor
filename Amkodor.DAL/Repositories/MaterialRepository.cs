@@ -1,4 +1,5 @@
-﻿using Amkodor.DAL.Interfaces;
+﻿using Amkodor.Common.Enums;
+using Amkodor.DAL.Interfaces;
 using Amkodor.Models.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -44,8 +45,9 @@ namespace Amkodor.DAL.Repositories
             {
                 if (material.Id.ToString().Contains(value) ||
                     material.Name.ToLower().Contains(value) ||
-                    material.Type.ToString().Contains(value) ||
-                    material.Unit.ToString().Contains(value) ||
+                    material.Type.Value.ToString().ToLower().Contains(value) ||
+                    material.Unit.Value.ToString().ToLower().Contains(value) ||
+                    material.Count.ToString().Contains(value) ||
                     material.WarehouseId.ToString().Contains(value))
                 {
                     foundMaterials.Add(material);

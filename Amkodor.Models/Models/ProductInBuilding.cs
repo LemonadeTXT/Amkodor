@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Amkodor.Models.Models
 {
-    public class Supplier
+    public class ProductInBuilding
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string? Address { get; set; }
-        public string? Email { get; set; }
-        public string? ContactNumber { get; set; }
-        public List<MaterialSupplier>? MaterialsSupplier { get; set; } = new();
+        public string Model { get; set; }
+        public string Readiness { get; set; }
+        public DateTime DeadLine { get; set; }
+        public List<Employee>? Employees { get; set; }
     }
 }

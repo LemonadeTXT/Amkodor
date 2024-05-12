@@ -24,6 +24,7 @@ namespace Amkodor
 
         private void ButtonEmployees_Click(object sender, RoutedEventArgs e)
         {
+            frame.Navigate(new EmployeesPage());
             HideTextBlock();
         }
 

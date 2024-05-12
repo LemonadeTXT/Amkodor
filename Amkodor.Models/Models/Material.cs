@@ -11,9 +11,10 @@ namespace Amkodor.Models.Models
     public class Material
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public TypeEnum? Type { get; set; }
         public UnitEnum? Unit { get; set; }
+        public int Count { get; set; }
 
         public int? WarehouseId { get; set; }
         public Warehouse? Warehouse { get; set; }
