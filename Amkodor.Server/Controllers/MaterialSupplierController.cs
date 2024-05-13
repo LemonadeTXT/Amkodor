@@ -42,5 +42,54 @@ namespace Amkodor.Server.Controllers
                 throw new Exception();
             }
         }
+
+        [HttpPost]
+        [Route("search")]
+        public async Task<IEnumerable<MaterialSupplier>> Search([FromBody] string value)
+        {
+            return _materialSupplierService.Search(value);
+        }
+
+        [HttpPost]
+        [Route("add")]
+        public void Add(MaterialSupplier materialSupplier)
+        {
+            try
+            {
+                _materialSupplierService.Add(materialSupplier);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
+        [Route("edit")]
+        public void Edit(MaterialSupplier materialSupplier)
+        {
+            try
+            {
+                _materialSupplierService.Edit(materialSupplier);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
+        [Route("delete")]
+        public void Delete(MaterialSupplier materialSupplier)
+        {
+            try
+            {
+                _materialSupplierService.Delete(materialSupplier);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
     }
 }

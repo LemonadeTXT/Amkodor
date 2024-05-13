@@ -30,5 +30,47 @@ namespace Amkodor.DAL.Repositories
 
             return materialsSuppliers;
         }
+
+        public IEnumerable<MaterialSupplier> Search(string value)
+        {
+            var foundMaterialsSuppliers = new List<MaterialSupplier>();
+
+            value = value.Trim().ToLower();
+
+            var materialsSuppliers = _applicationContext.MaterialsSuppliers.AsQueryable();
+
+            foreach (var materialSupplier in materialsSuppliers)
+            {
+                if (materialSupplier.Id.ToString().Contains(value) ||
+                    materialSupplier.Name.ToLower().Contains(value) ||
+                    materialSupplier.Type.Value.ToString().ToLower().Contains(value) ||
+                    materialSupplier.Unit.Value.ToString().ToLower().Contains(value) || 
+                    materialSupplier.PriceForOne.ToString().Contains(value) || 
+                    materialSupplier.SupplierId.ToString().Contains(value))
+                {
+                    foundMaterialsSuppliers.Add(materialSupplier);
+                }
+            }
+
+            return foundMaterialsSuppliers;
+        }
+
+        public void Add(MaterialSupplier materialSupplier)
+        {
+            _applicationContext.MaterialsSuppliers.Add(materialSupplier);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Edit(MaterialSupplier materialSupplier)
+        {
+            _applicationContext.MaterialsSuppliers.Update(materialSupplier);
+            _applicationContext.SaveChanges();
+        }
+
+        public void Delete(MaterialSupplier materialSupplier)
+        {
+            _applicationContext.MaterialsSuppliers.Remove(materialSupplier);
+            _applicationContext.SaveChanges();
+        }
     }
 }

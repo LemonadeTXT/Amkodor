@@ -56,5 +56,52 @@ namespace Amkodor.ConnectionServices
 
             return null;
         }
+
+        public async Task<IEnumerable<MaterialSupplier>> Search(string value)
+        {
+            var valueSerialize = JsonConvert.SerializeObject(value);
+
+            var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(_uri + "/search", content);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var foundedMaterialsSuppliers = JsonConvert.DeserializeObject<IEnumerable<MaterialSupplier>>(responseContent);
+
+                return foundedMaterialsSuppliers;
+            }
+
+            return null;
+        }
+
+        public async void Add(MaterialSupplier materialSupplier)
+        {
+            var materialSupplierSerialize = JsonConvert.SerializeObject(materialSupplier);
+
+            var content = new StringContent(materialSupplierSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/add", content);
+        }
+
+        public async void Edit(MaterialSupplier materialSupplier)
+        {
+            var materialSupplierSerialize = JsonConvert.SerializeObject(materialSupplier);
+
+            var content = new StringContent(materialSupplierSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/edit", content);
+        }
+
+        public async void Delete(MaterialSupplier materialSupplier)
+        {
+            var materialSupplierSerialize = JsonConvert.SerializeObject(materialSupplier);
+
+            var content = new StringContent(materialSupplierSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/delete", content);
+        }
     }
 }

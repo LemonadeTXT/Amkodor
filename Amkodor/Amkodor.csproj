@@ -10,10 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\excel32.png" />
     <None Remove="Images\favicon.ico" />
     <None Remove="Images\Logo.png" />
     <None Remove="Images\refresh32.png" />
     <None Remove="Images\search32.png" />
+    <None Remove="Images\word32.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,10 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\excel32.png" />
     <Resource Include="Images\favicon.ico" />
     <Resource Include="Images\Logo.png" />
     <Resource Include="Images\refresh32.png" />
     <Resource Include="Images\search32.png" />
+    <Resource Include="Images\word32.png" />
   </ItemGroup>
 
 </Project>

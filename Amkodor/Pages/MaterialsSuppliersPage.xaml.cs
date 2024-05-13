@@ -1,4 +1,8 @@
-﻿using Amkodor.ConnectionServices;
+﻿using Amkodor.AddWindows;
+using Amkodor.ConnectionServices;
+using Amkodor.EditWindows;
+using Amkodor.Models.Models;
+using Amkodor.RequestWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,15 +33,74 @@ namespace Amkodor.Pages
             LoadDatagrid();
         }
 
+        private void ButtonAddMaterialSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            new AddMaterialSupplierWindow(_materialSupplierConnectionService).ShowDialog();
+        }
+
+        private void ButtonEditMaterialSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            var materialSypplier = (MaterialSupplier)dataGridMaterialsSuppliers.SelectedItem;
+
+            if (materialSypplier != null)
+            {
+                new EditMaterialSupplierWindow(_materialSupplierConnectionService, materialSypplier).ShowDialog();
+            }
+        }
+
+        private void ButtonDeleteMaterialSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            var materialSypplier = (MaterialSupplier)dataGridMaterialsSuppliers.SelectedItem;
+
+            if (materialSypplier != null)
+            {
+                _materialSupplierConnectionService.Delete(materialSypplier);
+            }
+        }
+
+        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            dataGridMaterialsSuppliers.ItemsSource = await _materialSupplierConnectionService.GetAllMaterialsSuppliers();
+        }
+
+        private async void TextBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter && !string.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                Search(textBoxSearch.Text);
+            }
+            else if (e.Key == Key.Enter && string.IsNullOrEmpty(textBoxSearch.Text))
+            {
+                dataGridMaterialsSuppliers.ItemsSource = await _materialSupplierConnectionService.GetAllMaterialsSuppliers();
+            }
+        }
+
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            Search(textBoxSearch.Text);
+        }
+
+        private void ButtonRequest_Click(object sender, RoutedEventArgs e)
+        {
+            var materialSypplier = (MaterialSupplier)dataGridMaterialsSuppliers.SelectedItem;
+
+            if (materialSypplier != null)
+            {
+                new RequestMaterialSupplierWindow(materialSypplier).ShowDialog();
+            }
+        }
+
+        private async void Search(string value)
+        {
+            if (textBoxSearch.Text != string.Empty)
+            {
+                dataGridMaterialsSuppliers.ItemsSource = await _materialSupplierConnectionService.Search(value);
+            }
+        }
+
         private async void LoadDatagrid()
         {
             dataGridMaterialsSuppliers.ItemsSource = await _materialSupplierConnectionService.GetAllMaterialsSuppliers();
-
-            dataGridMaterialsSuppliers.Columns[0].Header = "№";
-            dataGridMaterialsSuppliers.Columns[1].Header = "Название";
-            dataGridMaterialsSuppliers.Columns[2].Header = "Тип";
-            dataGridMaterialsSuppliers.Columns[3].Header = "Единица измерения";
-            dataGridMaterialsSuppliers.Columns[4].Header = "Цена";
         }
     }
 }

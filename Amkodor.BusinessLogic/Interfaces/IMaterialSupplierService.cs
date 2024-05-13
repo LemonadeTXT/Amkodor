@@ -12,5 +12,13 @@ namespace Amkodor.BusinessLogic.Interfaces
         IEnumerable<MaterialSupplier> GetAllMaterialsSuppliers();
 
         IEnumerable<MaterialSupplier> GetAllMaterialsSupBySupplierId(int supplierId);
+
+        IEnumerable<MaterialSupplier> Search(string value);
+
+        void Add(MaterialSupplier materialSupplier);
+
+        void Edit(MaterialSupplier materialSupplier);
+
+        void Delete(MaterialSupplier materialSupplier);
     }
 }

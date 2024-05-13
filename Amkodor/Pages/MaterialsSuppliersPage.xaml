@@ -5,10 +5,39 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Amkodor.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1000"
       Title="MaterialsSuppliersPage">
 
     <Grid Background="White">
-        <DataGrid x:Name="dataGridMaterialsSuppliers" IsReadOnly="True"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="dataGridMaterialsSuppliers" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Ед. измерения" Binding="{Binding Unit}"/>
+                <DataGridTextColumn Header="Цена за штуку" Binding="{Binding PriceForOne}"/>
+                <DataGridTextColumn Header="№ Поставщика" Binding="{Binding SupplierId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" Content="Добавить" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonAddMaterialSupplier_Click"/>
+        <Button Grid.Row="1" Content="Изменить" HorizontalAlignment="Left" Margin="120,10,10,10" VerticalAlignment="Top" Click="ButtonEditMaterialSupplier_Click"/>
+        <Button Grid.Row="1" Content="Удалить" HorizontalAlignment="Left" Margin="230,10,10,10" VerticalAlignment="Top" Click="ButtonDeleteMaterialSupplier_Click"/>
+        <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonRefresh_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/refresh32.png"/>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="400,13,10,10" Grid.Row="1" TextWrapping="Wrap" Text="Поиск:" FontSize="14" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="1" x:Name="textBoxSearch" Margin="450,10,10,10" Width="270" HorizontalAlignment="Left" VerticalAlignment="Top" KeyDown="TextBoxSearch_KeyDown"/>
+        <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="730,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="28" Height="28" Click="ButtonSearch_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/search32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Content="Запрос" HorizontalAlignment="Left" Margin="830,10,10,10" VerticalAlignment="Top" Click="ButtonRequest_Click"/>
     </Grid>
 </Page>

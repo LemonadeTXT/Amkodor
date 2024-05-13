@@ -16,7 +16,7 @@ namespace Amkodor.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Employee>> GetAlEmployees()
+        public async Task<IEnumerable<Employee>> GetAllEmployees()
         {
             try
             {

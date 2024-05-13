@@ -4,6 +4,7 @@ using Amkodor.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amkodor.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20240513110458_AddedNewModels")]
+    partial class AddedNewModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,10 +102,10 @@ namespace Amkodor.DAL.Migrations
                     b.Property<int?>("SupplierId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Type")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Unit")
+                    b.Property<int>("Unit")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -165,46 +168,6 @@ namespace Amkodor.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductsInBuilding");
-                });
-
-            modelBuilder.Entity("Amkodor.Models.Models.RequestMaterialSupplier", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool?>("Approve")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ArrivalDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("PriceForOne")
-                        .HasColumnType("money");
-
-                    b.Property<int?>("SupplierId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Type")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Unit")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SupplierId");
-
-                    b.ToTable("RequestMaterialsSuppliers");
                 });
 
             modelBuilder.Entity("Amkodor.Models.Models.Supplier", b =>
@@ -297,15 +260,6 @@ namespace Amkodor.DAL.Migrations
                 {
                     b.HasOne("Amkodor.Models.Models.Supplier", "Supplier")
                         .WithMany("MaterialsSupplier")
-                        .HasForeignKey("SupplierId");
-
-                    b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("Amkodor.Models.Models.RequestMaterialSupplier", b =>
-                {
-                    b.HasOne("Amkodor.Models.Models.Supplier", "Supplier")
-                        .WithMany()
                         .HasForeignKey("SupplierId");
 
                     b.Navigation("Supplier");

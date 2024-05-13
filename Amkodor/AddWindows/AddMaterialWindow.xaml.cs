@@ -59,7 +59,7 @@ namespace Amkodor.AddWindows
             }
         }
 
-        private async void LoadComboBoxes()
+        private void LoadComboBoxes()
         {
             comboBoxType.ItemsSource = Enum.GetValues(typeof(TypeEnum));
             comboBoxUnit.ItemsSource = Enum.GetValues(typeof(UnitEnum));
