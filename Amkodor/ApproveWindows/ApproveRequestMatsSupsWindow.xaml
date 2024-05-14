@@ -1,0 +1,22 @@
+﻿<Window x:Class="Amkodor.ApproveWindows.ApproveRequestMatsSupsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amkodor.ApproveWindows"
+        mc:Ignorable="d"
+        Title="Одобрить покупку" Height="450" Width="410"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="83,67,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="222,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBlock HorizontalAlignment="Left" Margin="83,136,0,0" TextWrapping="Wrap" Text="Цена за штуку" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockPriceForOne" HorizontalAlignment="Left" Margin="222,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBlock HorizontalAlignment="Left" Margin="83,207,0,0" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockCount" HorizontalAlignment="Left" Margin="222,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBlock HorizontalAlignment="Left" Margin="83,273,0,0" TextWrapping="Wrap" Text="Дата получения" VerticalAlignment="Top"/>
+        <DatePicker Name="datePickerArrivalDate" HorizontalAlignment="Left" Margin="222,264,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Одобрить" HorizontalAlignment="Center" Margin="0,361,0,0" VerticalAlignment="Top" Click="ButtonApprove_Click"/>
+
+    </Grid>
+</Window>

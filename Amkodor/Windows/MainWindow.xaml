@@ -23,7 +23,7 @@
                     <MenuItem Header="_Изделия" Click="ButtonProducts_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Планирование">
-                    <MenuItem Header="_Плановое задание" />
+                    <MenuItem Header="_Плановое задание" Click="ButtonPlannedTasks_Click"/>
                     <MenuItem Header="_Запрос на покупку" Click="ButtonPurchaseRequest_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Отчеты">

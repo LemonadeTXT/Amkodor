@@ -14,7 +14,6 @@ namespace Amkodor.Models.Models
         public string? PhoneNumber { get; set; }
         public PositionEnum? Position { get; set; }
 
-        public int? ProductInBuildingId { get; set; }
-        public ProductInBuilding? ProductInBuilding { get; set; }
+        public List<ProductInManufacturing>? ProductsInManufacturing { get; set; } = new();
     }
 }

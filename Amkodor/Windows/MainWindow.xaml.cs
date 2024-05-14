@@ -45,6 +45,12 @@ namespace Amkodor
             HideTextBlock();
         }
 
+        private void ButtonPlannedTasks_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new PlannedTasksPage());
+            HideTextBlock();
+        }
+
         private void ButtonPurchaseRequest_Click(object sender, RoutedEventArgs e)
         {
             frame.Navigate(new MaterialsSuppliersPage());

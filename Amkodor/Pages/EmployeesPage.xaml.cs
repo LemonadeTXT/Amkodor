@@ -1,6 +1,7 @@
 ﻿using Amkodor.AddWindows;
 using Amkodor.ConnectionServices;
 using Amkodor.EditWindows;
+using Amkodor.InfoWindows;
 using Amkodor.Models.Models;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,6 @@ namespace Amkodor.Pages
 
         private void ButtonDeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
-
             var employee = (Employee)dataGridEmployees.SelectedItem;
 
             if (employee != null)
@@ -78,6 +78,16 @@ namespace Amkodor.Pages
         private void ButtonSearch_Click(object sender, RoutedEventArgs e)
         {
             Search(textBoxSearch.Text);
+        }
+
+        private void ButtonInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var employee = (Employee)dataGridEmployees.SelectedItem;
+
+            if (employee != null)
+            {
+                new InfoEmployeeWindow(employee).ShowDialog();
+            }
         }
 
         private async void Search(string value)
