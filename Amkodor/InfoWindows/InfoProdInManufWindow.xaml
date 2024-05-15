@@ -1,0 +1,34 @@
+﻿<Window x:Class="Amkodor.InfoWindows.InfoProdInManufWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amkodor.InfoWindows"
+        mc:Ignorable="d"
+        Title="Информация о плановом задании" Height="550" Width="1200"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="0" x:Name="dataGridMaterialsInManuf" Margin="0,0,1,0" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Type}"/>
+                <DataGridTextColumn Header="Ед. измерения" Binding="{Binding Unit}"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Count}"/>
+                <DataGridTextColumn Header="№ Склада" Binding="{Binding WarehouseId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="1" x:Name="dataGridEmployeesInManuf" Margin="1,0,0,0" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Position}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -17,11 +17,54 @@ namespace Amkodor.Server.Controllers
         }
 
         [HttpGet]
+        [Route("getAllProductsInManufacturing")]
         public async Task<IEnumerable<ProductInManufacturing>> GetAllProductsInManufacturing()
         {
             try
             {
                 return _productInManufService.GetAllProductsInManufacturing();
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpGet]
+        [Route("getAllActiveProductsInManufacturing")]
+        public async Task<IEnumerable<ProductInManufacturing>> GetAllActiveProductsInManufacturing()
+        {
+            try
+            {
+                return _productInManufService.GetAllActiveProductsInManufacturing();
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpGet]
+        [Route("getAllInactiveProductsInManufacturing")]
+        public async Task<IEnumerable<ProductInManufacturing>> GetAllInactiveProductsInManufacturing()
+        {
+            try
+            {
+                return _productInManufService.GetAllInactiveProductsInManufacturing();
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
+        [Route("getInactiveProdInManufById")]
+        public async Task<ProductInManufacturing> GetInactiveProdInManufById([FromBody] int id)
+        {
+            try
+            {
+                return _productInManufService.GetInactiveProdInManufById(id);
             }
             catch
             {

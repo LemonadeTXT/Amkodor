@@ -23,7 +23,7 @@ namespace Amkodor.ConnectionServices
 
         public async Task<IEnumerable<ProductInManufacturing>> GetAllProductsInManufacturing()
         {
-            var response = await _httpClient.GetAsync(_uri);
+            var response = await _httpClient.GetAsync(_uri + "/getAllProductsInManufacturing");
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -32,6 +32,58 @@ namespace Amkodor.ConnectionServices
                 var productsInManuf = JsonConvert.DeserializeObject<IEnumerable<ProductInManufacturing>>(responseContent);
 
                 return productsInManuf;
+            }
+
+            return null;
+        }
+
+        public async Task<IEnumerable<ProductInManufacturing>> GetAllActiveProductsInManufacturing()
+        {
+            var response = await _httpClient.GetAsync(_uri + "/getAllActiveProductsInManufacturing");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var productsInManuf = JsonConvert.DeserializeObject<IEnumerable<ProductInManufacturing>>(responseContent);
+
+                return productsInManuf;
+            }
+
+            return null;
+        }
+
+        public async Task<IEnumerable<ProductInManufacturing>> GetAllInactiveProductsInManufacturing()
+        {
+            var response = await _httpClient.GetAsync(_uri + "/getAllInactiveProductsInManufacturing");
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var productsInManuf = JsonConvert.DeserializeObject<IEnumerable<ProductInManufacturing>>(responseContent);
+
+                return productsInManuf;
+            }
+
+            return null;
+        }
+
+        public async Task<ProductInManufacturing> GetInactiveProdInManufById(int id)
+        {
+            var valueSerialize = JsonConvert.SerializeObject(id);
+
+            var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(_uri + "/getInactiveProdInManufById", content);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var foundedProductInManuf = JsonConvert.DeserializeObject<ProductInManufacturing>(responseContent);
+
+                return foundedProductInManuf;
             }
 
             return null;

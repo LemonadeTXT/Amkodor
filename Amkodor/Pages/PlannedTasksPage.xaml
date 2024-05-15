@@ -18,13 +18,13 @@
                 <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Модель" Binding="{Binding Model}"/>
-                <DataGridTextColumn Header="Материалы" Binding="{Binding Materials}"/>
-                <DataGridTextColumn Header="Сотрудники" Binding="{Binding Employees}"/>
+                <DataGridTextColumn Header="Виды материалов" Binding="{Binding MaterialInManufacturingCount}"/>
+                <DataGridTextColumn Header="Колич. сотрудников" Binding="{Binding EmployeesCount}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Row="1" Content="Добавить" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonAddPlannedProduct_Click"/>
-        <Button Grid.Row="1" Content="Материалы" HorizontalAlignment="Left" Margin="120,10,10,10" VerticalAlignment="Top" Click="ButtonAllowedMaterials_Click"/>
-        <Button Grid.Row="1" Content="Сотрудники" HorizontalAlignment="Left" Margin="240,10,10,10" VerticalAlignment="Top" Click="ButtonAllowedEmployees_Click"/>
+        <Button Grid.Row="1" Content="Материалы" HorizontalAlignment="Left" Margin="120,10,0,13" Click="ButtonMaterials_Click"/>
+        <Button Grid.Row="1" Content="Сотрудники" HorizontalAlignment="Left" Margin="240,10,10,10" VerticalAlignment="Top" Click="ButtonEmployees_Click"/>
         <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonRefresh_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/refresh32.png"/>

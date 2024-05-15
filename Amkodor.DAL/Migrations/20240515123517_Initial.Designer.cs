@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amkodor.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240514163912_ModelUpdated")]
-    partial class ModelUpdated
+    [Migration("20240515123517_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -181,7 +181,7 @@ namespace Amkodor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DeadLine")
+                    b.Property<DateTime?>("DeadLine")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("InManufacturing")

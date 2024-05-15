@@ -178,7 +178,7 @@ namespace Amkodor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DeadLine")
+                    b.Property<DateTime?>("DeadLine")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("InManufacturing")

@@ -23,6 +23,21 @@ namespace Amkodor.BusinessLogic.Services
             return _productInManufRepository.GetAllProductsInManufacturing();
         }
 
+        public IEnumerable<ProductInManufacturing> GetAllActiveProductsInManufacturing()
+        {
+            return _productInManufRepository.GetAllActiveProductsInManufacturing();
+        }
+
+        public IEnumerable<ProductInManufacturing> GetAllInactiveProductsInManufacturing()
+        {
+            return _productInManufRepository.GetAllInactiveProductsInManufacturing();
+        }
+
+        public ProductInManufacturing GetInactiveProdInManufById(int id)
+        {
+            return _productInManufRepository.GetInactiveProdInManufById(id);
+        }
+
         public void Add(ProductInManufacturing productInManufacturing)
         {
             _productInManufRepository.Add(productInManufacturing);

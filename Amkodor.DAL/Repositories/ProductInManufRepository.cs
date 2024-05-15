@@ -1,5 +1,6 @@
 ﻿using Amkodor.DAL.Interfaces;
 using Amkodor.Models.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,36 @@ namespace Amkodor.DAL.Repositories
             var productsInManufacturing = _applicationContext.ProductsInManufacturing.ToList();
 
             return productsInManufacturing;
+        }
+
+        public IEnumerable<ProductInManufacturing> GetAllActiveProductsInManufacturing()
+        {
+            var productsInManufacturing = _applicationContext.ProductsInManufacturing.
+                Where(pm => pm.InManufacturing == true).
+                Include(pm => pm.Employees).
+                Include(pm => pm.MaterialInManufacturing).ToList();
+
+            return productsInManufacturing;
+        }
+
+        public IEnumerable<ProductInManufacturing> GetAllInactiveProductsInManufacturing()
+        {
+            var productsInManufacturing = _applicationContext.ProductsInManufacturing.
+                Where(pm => pm.InManufacturing == false).
+                Include(pm => pm.Employees).
+                Include(pm => pm.MaterialInManufacturing).ToList();
+
+            return productsInManufacturing;
+        }
+
+        public ProductInManufacturing GetInactiveProdInManufById(int id)
+        {
+            var prodInManufById = _applicationContext.ProductsInManufacturing.
+                Include(pm => pm.Employees).
+                Include(pm => pm.MaterialInManufacturing).
+                FirstOrDefault(pm => pm.Id == id && pm.InManufacturing == false);
+
+            return prodInManufById;
         }
 
         public void Add(ProductInManufacturing productInManufacturing)

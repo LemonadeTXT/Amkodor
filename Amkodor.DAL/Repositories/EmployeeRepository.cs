@@ -1,5 +1,6 @@
 ﻿using Amkodor.DAL.Interfaces;
 using Amkodor.Models.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Amkodor.DAL.Repositories
 
         public IEnumerable<Employee> GetAllEmployees()
         {
-            var employees = _applicationContext.Employees.ToList();
+            var employees = _applicationContext.Employees.Include(e => e.ProductsInManufacturing).ToList();
 
             return employees;
         }

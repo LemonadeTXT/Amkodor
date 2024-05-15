@@ -11,6 +11,12 @@ namespace Amkodor.BusinessLogic.Interfaces
     {
         IEnumerable<ProductInManufacturing> GetAllProductsInManufacturing();
 
+        IEnumerable<ProductInManufacturing> GetAllActiveProductsInManufacturing();
+
+        IEnumerable<ProductInManufacturing> GetAllInactiveProductsInManufacturing();
+
+        ProductInManufacturing GetInactiveProdInManufById(int id);
+
         void Add(ProductInManufacturing productInManufacturing);
 
         void Edit(ProductInManufacturing productInManufacturing);

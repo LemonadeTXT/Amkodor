@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Amkodor.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class Ititial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,7 +51,8 @@ namespace Amkodor.DAL.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Readiness = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DeadLine = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DeadLine = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    InManufacturing = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

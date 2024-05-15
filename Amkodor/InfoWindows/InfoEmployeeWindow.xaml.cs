@@ -50,7 +50,7 @@ namespace Amkodor.InfoWindows
 
             foreach (var productInManuf in productsInManuf)
             {
-                productsInManufNames.Add(productInManuf.Name);
+                productsInManufNames.Add($"{productInManuf.Name} [{productInManuf.Model}]");
             }
 
             comboBoxWorkingOn.ItemsSource = productsInManufNames;

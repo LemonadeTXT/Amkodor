@@ -1,0 +1,17 @@
+﻿<Window x:Class="Amkodor.AddWindows.AddPlannedProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amkodor.AddWindows"
+        mc:Ignorable="d"
+        Title="Добавить плановое задание" Height="270" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="74,43,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="200,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBlock HorizontalAlignment="Left" Margin="74,125,0,0" TextWrapping="Wrap" Text="Модель" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxModel" HorizontalAlignment="Left" Margin="200,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Button Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,182,0,0" Click="ButtonAdd_Click"/>
+    </Grid>
+</Window>

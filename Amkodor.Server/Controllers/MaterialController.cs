@@ -17,7 +17,7 @@ namespace Amkodor.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Material>> GetAlMaterials()
+        public async Task<IEnumerable<Material>> GetAllMaterials()
         {
             try
             {

@@ -15,6 +15,9 @@ namespace Amkodor.Server
 
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddControllersWithViews().
+                AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
             builder.Services.AddIServices();
             builder.Services.AddIRepositories();
 
