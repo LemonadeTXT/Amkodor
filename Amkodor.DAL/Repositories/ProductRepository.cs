@@ -47,6 +47,12 @@ namespace Amkodor.DAL.Repositories
             return foundProducts;
         }
 
+        public void Add(Product product)
+        {
+            _applicationContext.Products.Add(product);
+            _applicationContext.SaveChanges();
+        }
+
         public void Edit(Product product)
         {
             _applicationContext.Products.Update(product);

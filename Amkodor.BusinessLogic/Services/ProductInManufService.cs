@@ -33,6 +33,11 @@ namespace Amkodor.BusinessLogic.Services
             return _productInManufRepository.GetAllInactiveProductsInManufacturing();
         }
 
+        public ProductInManufacturing GetActiveProdInManufById(int id)
+        {
+            return _productInManufRepository.GetActiveProdInManufById(id);
+        }
+
         public ProductInManufacturing GetInactiveProdInManufById(int id)
         {
             return _productInManufRepository.GetInactiveProdInManufById(id);
@@ -46,6 +51,11 @@ namespace Amkodor.BusinessLogic.Services
         public void Edit(ProductInManufacturing productInManufacturing)
         {
             _productInManufRepository.Edit(productInManufacturing);
+        }
+
+        public void EditTarget(ProductInManufacturing productInManufacturing)
+        {
+            _productInManufRepository.EditTarget(productInManufacturing);
         }
 
         public void Delete(ProductInManufacturing productInManufacturing)

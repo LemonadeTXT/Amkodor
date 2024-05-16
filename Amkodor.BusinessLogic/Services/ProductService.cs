@@ -28,6 +28,11 @@ namespace Amkodor.BusinessLogic.Services
             return _productRepository.Search(value);
         }
 
+        public void Add(Product product)
+        {
+            _productRepository.Add(product);
+        }
+
         public void Edit(Product product)
         {
             _productRepository.Edit(product);

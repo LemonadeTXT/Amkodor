@@ -27,7 +27,7 @@
                     <MenuItem Header="_Запрос на покупку" Click="ButtonPurchaseRequest_Click"/>
                 </MenuItem>
                 <MenuItem Header="_Отчеты">
-                    <MenuItem Header="_Изделия в производстве" />
+                    <MenuItem Header="_Изделия в производстве" Click="ButtonProductsInManuf_Click"/>
                     <MenuItem Header="_Запросы по покупкам" Click="ButtonRequestMaterialsSups_Click"/>
                 </MenuItem>
             </Menu>

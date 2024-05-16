@@ -1,0 +1,19 @@
+﻿<Window x:Class="Amkodor.SendWindows.SendPlannedProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amkodor.SendWindows"
+        mc:Ignorable="d"
+        Title="Отправить в производство" Height="370" Width="390"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="61,62,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="200,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+        <TextBlock HorizontalAlignment="Left" Margin="61,132,0,0" TextWrapping="Wrap" Text="Модель" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockModel" HorizontalAlignment="Left" Margin="200,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+        <TextBlock HorizontalAlignment="Left" Margin="61,202,0,0" TextWrapping="Wrap" Text="Срок производства" VerticalAlignment="Top"/>
+        <DatePicker Name="datePickerDeadLine" HorizontalAlignment="Left" Margin="200,198,0,0" Width="132" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top"/>
+        <Button Content="Отправить" HorizontalAlignment="Center" Margin="0,274,0,0" VerticalAlignment="Top" Click="ButtonSend_Click"/>
+    </Grid>
+</Window>

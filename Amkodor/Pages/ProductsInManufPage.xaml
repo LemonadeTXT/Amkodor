@@ -1,0 +1,47 @@
+﻿<Page x:Class="Amkodor.Pages.ProductsInManufPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Amkodor.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="ProductsInManufPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="dataGridProductsInManuf" IsReadOnly="True" AutoGenerateColumns="False" HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Model}"/>
+                <DataGridTextColumn Header="Готовность" Binding="{Binding Readiness}"/>
+                <DataGridTextColumn Header="Срок сдачи" Binding="{Binding DeadLine}"/>
+                <DataGridTextColumn Header="Виды материалов" Binding="{Binding MaterialInManufacturingCount}"/>
+                <DataGridTextColumn Header="Колич. сотрудников" Binding="{Binding EmployeesCount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="1" Content="Изменить" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonEditProdsInManuf_Click"/>
+        <Button Grid.Row="1" Content="Удалить" HorizontalAlignment="Left" Margin="120,10,10,10" VerticalAlignment="Top" Click="ButtonDeleteProdsInManuf_Click"/>
+        <Button Grid.Row="1" Content="Подробно" HorizontalAlignment="Left" Margin="220,10,10,10" VerticalAlignment="Top" Click="ButtonInfo_Click"/>
+        <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonRefresh_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/refresh32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Content="Button" HorizontalAlignment="Right" Margin="10,10,120,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonWord_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/word32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Content="Button" HorizontalAlignment="Right" Margin="10,10,160,10" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Height="32" Foreground="{x:Null}" Click="ButtonExcel_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/Images/excel32.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Content="Перевод" HorizontalAlignment="Right" Margin="100,10,10,10" VerticalAlignment="Top" Click="ButtonTransfer_Click"/>
+    </Grid>
+</Page>

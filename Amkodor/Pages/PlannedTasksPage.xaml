@@ -23,14 +23,15 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Grid.Row="1" Content="Добавить" HorizontalAlignment="Left" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonAddPlannedProduct_Click"/>
-        <Button Grid.Row="1" Content="Материалы" HorizontalAlignment="Left" Margin="120,10,0,13" Click="ButtonMaterials_Click"/>
-        <Button Grid.Row="1" Content="Сотрудники" HorizontalAlignment="Left" Margin="240,10,10,10" VerticalAlignment="Top" Click="ButtonEmployees_Click"/>
-        <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="360,10,10,10" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonRefresh_Click">
+        <Button Grid.Row="1" Content="Удалить" HorizontalAlignment="Left" Margin="120,10,10,10" VerticalAlignment="Top" Click="ButtonDeletePlannedProduct_Click"/>
+        <Button Grid.Row="1" Content="Материалы" HorizontalAlignment="Left" Margin="217,10,0,13" Click="ButtonMaterials_Click"/>
+        <Button Grid.Row="1" Content="Сотрудники" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" Click="ButtonEmployees_Click"/>
+        <Button Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="457,10,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Width="32" Height="32" Click="ButtonRefresh_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/Images/refresh32.png"/>
             </Button.Background>
         </Button>
-        <Button Grid.Row="1" Content="Подробно" HorizontalAlignment="Left" Margin="450,10,10,10" VerticalAlignment="Top" Click="ButtonInfo_Click"/>
+        <Button Grid.Row="1" Content="Подробно" HorizontalAlignment="Left" Margin="547,10,0,0" VerticalAlignment="Top" Click="ButtonInfo_Click"/>
         <Button Grid.Row="1" Content="Отправить" HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Top" Click="ButtonSend_Click"/>
     </Grid>
 </Page>

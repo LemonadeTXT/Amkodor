@@ -13,6 +13,8 @@ namespace Amkodor.DAL.Interfaces
 
         IEnumerable<Product> Search(string value);
 
+        void Add(Product product);
+
         void Edit(Product product);
 
         void Delete(Product product);

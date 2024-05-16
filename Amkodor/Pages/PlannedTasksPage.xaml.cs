@@ -4,6 +4,7 @@ using Amkodor.ConnectionServices;
 using Amkodor.InfoWindows;
 using Amkodor.Models.Models;
 using Amkodor.PlanningWindows;
+using Amkodor.SendWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,18 @@ namespace Amkodor.Pages
             new AddPlannedProductWindow(_productInManufConnectionService).ShowDialog();
         }
 
+        private async void ButtonDeletePlannedProduct_Click(object sender, RoutedEventArgs e)
+        {
+            var productInManufDto = (ProductInManufacturingDto)dataGridPlannedProduct.SelectedItem;
+
+            if (productInManufDto != null)
+            {
+                var productInManuf = await _productInManufConnectionService.GetInactiveProdInManufById(productInManufDto.Id);
+
+                _productInManufConnectionService.Delete(productInManuf);
+            }
+        }
+
         private async void ButtonMaterials_Click(object sender, RoutedEventArgs e)
         {
             var productInManufDto = (ProductInManufacturingDto)dataGridPlannedProduct.SelectedItem;
@@ -63,9 +76,9 @@ namespace Amkodor.Pages
             }
         }
 
-        private async void ButtonRefresh_Click(object sender, RoutedEventArgs e)
+        private void ButtonRefresh_Click(object sender, RoutedEventArgs e)
         {
-            dataGridPlannedProduct.ItemsSource = ProdsInManufToDto(await _productInManufConnectionService.GetAllInactiveProductsInManufacturing());
+            Refresh();
         }
 
         private async void ButtonInfo_Click(object sender, RoutedEventArgs e)
@@ -80,9 +93,31 @@ namespace Amkodor.Pages
             }
         }
 
-        private void ButtonSend_Click(object sender, RoutedEventArgs e)
+        private async void ButtonSend_Click(object sender, RoutedEventArgs e)
         {
+            var productInManufDto = (ProductInManufacturingDto)dataGridPlannedProduct.SelectedItem;
 
+            if (productInManufDto != null)
+            {
+                var productInManuf = await _productInManufConnectionService.GetInactiveProdInManufById(productInManufDto.Id);
+
+                if (productInManuf.MaterialInManufacturing.Count > 0 && 
+                    productInManuf.Employees.Count > 0)
+                {
+                    var send = new SendPlannedProductWindow(_productInManufConnectionService, productInManuf);
+                    send.ShowDialog();
+
+                    if (send.IsSuccessful)
+                    {
+                        Refresh();
+                    }
+                }
+            }
+        }
+
+        private async void Refresh()
+        {
+            dataGridPlannedProduct.ItemsSource = ProdsInManufToDto(await _productInManufConnectionService.GetAllInactiveProductsInManufacturing());
         }
 
         private async void LoadDataGrid()

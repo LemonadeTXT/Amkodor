@@ -36,6 +36,20 @@ namespace Amkodor.Server.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
+        public void Add(Product product)
+        {
+            try
+            {
+                _productService.Add(product);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
         [Route("edit")]
         public void Edit(Product product)
         {

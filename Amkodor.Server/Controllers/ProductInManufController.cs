@@ -59,6 +59,20 @@ namespace Amkodor.Server.Controllers
         }
 
         [HttpPost]
+        [Route("getActiveProdInManufById")]
+        public async Task<ProductInManufacturing> GetActiveProdInManufById([FromBody] int id)
+        {
+            try
+            {
+                return _productInManufService.GetActiveProdInManufById(id);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
         [Route("getInactiveProdInManufById")]
         public async Task<ProductInManufacturing> GetInactiveProdInManufById([FromBody] int id)
         {
@@ -93,6 +107,20 @@ namespace Amkodor.Server.Controllers
             try
             {
                 _productInManufService.Edit(productInManufacturing);
+            }
+            catch
+            {
+                throw new Exception();
+            }
+        }
+
+        [HttpPost]
+        [Route("editTarget")]
+        public void EditTarget(ProductInManufacturing productInManufacturing)
+        {
+            try
+            {
+                _productInManufService.EditTarget(productInManufacturing);
             }
             catch
             {

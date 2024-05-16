@@ -69,6 +69,26 @@ namespace Amkodor.ConnectionServices
             return null;
         }
 
+        public async Task<ProductInManufacturing> GetActiveProdInManufById(int id)
+        {
+            var valueSerialize = JsonConvert.SerializeObject(id);
+
+            var content = new StringContent(valueSerialize, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync(_uri + "/getActiveProdInManufById", content);
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+
+                var foundedProductInManuf = JsonConvert.DeserializeObject<ProductInManufacturing>(responseContent);
+
+                return foundedProductInManuf;
+            }
+
+            return null;
+        }
+
         public async Task<ProductInManufacturing> GetInactiveProdInManufById(int id)
         {
             var valueSerialize = JsonConvert.SerializeObject(id);
@@ -105,6 +125,15 @@ namespace Amkodor.ConnectionServices
             var content = new StringContent(productInManufSerialize, Encoding.UTF8, "application/json");
 
             await _httpClient.PostAsync(_uri + "/edit", content);
+        }
+
+        public async void EditTarget(ProductInManufacturing productInManuf)
+        {
+            var productInManufSerialize = JsonConvert.SerializeObject(productInManuf);
+
+            var content = new StringContent(productInManufSerialize, Encoding.UTF8, "application/json");
+
+            await _httpClient.PostAsync(_uri + "/editTarget", content);
         }
 
         public async void Delete(ProductInManufacturing productInManuf)

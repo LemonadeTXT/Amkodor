@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Amkodor.InfoWindows"
         mc:Ignorable="d"
-        Title="Информация о плановом задании" Height="550" Width="1200"
+        Title="Информация о изделии" Height="550" Width="1200"
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>

@@ -45,6 +45,16 @@ namespace Amkodor.DAL.Repositories
             return productsInManufacturing;
         }
 
+        public ProductInManufacturing GetActiveProdInManufById(int id)
+        {
+            var prodInManufById = _applicationContext.ProductsInManufacturing.
+                Include(pm => pm.Employees).
+                Include(pm => pm.MaterialInManufacturing).
+                FirstOrDefault(pm => pm.Id == id && pm.InManufacturing == true);
+
+            return prodInManufById;
+        }
+
         public ProductInManufacturing GetInactiveProdInManufById(int id)
         {
             var prodInManufById = _applicationContext.ProductsInManufacturing.
@@ -64,6 +74,19 @@ namespace Amkodor.DAL.Repositories
         public void Edit(ProductInManufacturing productInManufacturing)
         {
             _applicationContext.ProductsInManufacturing.Update(productInManufacturing);
+            _applicationContext.SaveChanges();
+        }
+
+        public void EditTarget(ProductInManufacturing productInManufacturing)
+        {
+            _applicationContext.ProductsInManufacturing.
+                Where(pm => pm.Id ==  productInManufacturing.Id).
+                ExecuteUpdate(s => s.
+                SetProperty(pm => pm.Name, pm => productInManufacturing.Name).
+                SetProperty(pm => pm.Model, pm => productInManufacturing.Model).
+                SetProperty(pm => pm.Readiness, pm => productInManufacturing.Readiness).
+                SetProperty(pm => pm.DeadLine, pm => productInManufacturing.DeadLine).
+                SetProperty(pm => pm.InManufacturing, pm => productInManufacturing.InManufacturing));
             _applicationContext.SaveChanges();
         }
 

@@ -1,0 +1,23 @@
+﻿<Window x:Class="Amkodor.TransferWindows.TransferProdInManufWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Amkodor.TransferWindows"
+        mc:Ignorable="d"
+        Title="Перевод изделия" Height="470" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="60,50,0,0" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockName" HorizontalAlignment="Left" Margin="219,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,120,0,0" TextWrapping="Wrap" Text="Модель" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockModel" HorizontalAlignment="Left" Margin="219,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,190,0,0" TextWrapping="Wrap" Text="Готовность" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockReadiness" HorizontalAlignment="Left" Margin="219,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,260,0,0" TextWrapping="Wrap" Text="Срок производства" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockDeadLine" HorizontalAlignment="Left" Margin="219,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,330,0,0" TextWrapping="Wrap" Text="Себестоимость" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxCostPrice" HorizontalAlignment="Left" Margin="219,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127"/>
+        <Button Content="Перевод" HorizontalAlignment="Center" Margin="0,378,0,0" VerticalAlignment="Top" Click="ButtonTransfer_Click"/>
+    </Grid>
+</Window>

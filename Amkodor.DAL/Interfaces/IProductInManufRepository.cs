@@ -15,11 +15,15 @@ namespace Amkodor.DAL.Interfaces
 
         IEnumerable<ProductInManufacturing> GetAllInactiveProductsInManufacturing();
 
+        ProductInManufacturing GetActiveProdInManufById(int id);
+
         ProductInManufacturing GetInactiveProdInManufById(int id);
 
         void Add(ProductInManufacturing productInManufacturing);
 
         void Edit(ProductInManufacturing productInManufacturing);
+
+        void EditTarget(ProductInManufacturing productInManufacturing);
 
         void Delete(ProductInManufacturing productInManufacturing);
     }
